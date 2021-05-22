@@ -1,7 +1,10 @@
 package com.junction.seoul.hunterandroid.main
 
+import com.junction.seoul.hunterandroid.data.BusNumber
+
 data class MainViewState(
-    val status: Status = Status.SEARCH
+    val status: Status = Status.SEARCH,
+    val busNumber: BusNumber? = null
 ) {
     enum class Status {
         SEARCH, // 메인

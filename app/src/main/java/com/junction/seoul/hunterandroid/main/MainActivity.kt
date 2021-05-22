@@ -1,5 +1,7 @@
 package com.junction.seoul.hunterandroid.main
 
+import android.os.Bundle
+import android.view.View
 import androidx.activity.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.junction.seoul.hunterandroid.R
@@ -12,6 +14,15 @@ import kotlinx.coroutines.flow.collect
 class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
 
     private val viewModel by viewModels<MainViewModel>()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        binding.voiceRecord.setOnClickListener {
+            // TODO : 음성 인식후 그 결과를 전달하도록 변경
+            viewModel.searchBus("5017")
+        }
+    }
 
     override fun onStart() {
         super.onStart()
@@ -34,7 +45,13 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
                 binding.button1.text = "즐겨찾는 버스 번호"
                 binding.button2.text = "설정"
             }
-            MainViewState.Status.SEARCHED -> TODO()
+            MainViewState.Status.SEARCHED -> {
+                binding.title1.text = "검색하신 버스 번호가 맞으십니까?"
+                binding.title2.text = "5017"
+                binding.button1.text = "탑승할 예정입니다"
+                binding.button1.visibility = View.VISIBLE
+                binding.button2.visibility = View.INVISIBLE
+            }
             MainViewState.Status.RESERVED -> TODO()
         }
     }
