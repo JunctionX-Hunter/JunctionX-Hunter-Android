@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools">
+  
+  <data>
+  
+  </data>
+  
+  <androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/list"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/rounded_14dp_button"
+    android:clipToPadding="false"
+    app:behavior_hideable="true"
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+    tools:context=".setting.BottomDialogFragment">
+    
+    <androidx.constraintlayout.widget.ConstraintLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent">
+      
+      <TextView
+        android:id="@+id/title"
+        style="@style/Text.R1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="31dp"
+        android:gravity="left"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:text="6172 버스 번호를 삭제하시겠습니까?"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@id/btCancle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+      
+      <TextView
+        android:id="@+id/btCancle"
+        
+        style="@style/Text.M5"
+        android:layout_width="180dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="31dp"
+        android:gravity="center"
+        android:text="취소"
+        android:textColor="@color/key_blue"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title" />
+      
+      <TextView
+        android:id="@+id/btnRemove"
+        style="@style/Text.M5"
+        android:layout_width="180dp"
+        android:layout_height="47dp"
+        android:gravity="center"
+        android:text="삭제"
+        android:textColor="@color/key_blue"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btCancle"
+        app:layout_constraintTop_toTopOf="@+id/btCancle" />
+    
+    </androidx.constraintlayout.widget.ConstraintLayout>
+  
+  </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
+
+

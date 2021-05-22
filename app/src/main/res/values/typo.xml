@@ -18,6 +18,13 @@
     <item name="android:textStyle">normal</item>
     <item name="android:textColor">@color/gray_90</item>
   </style>
+  
+  <style name="Text.M5">
+    <item name="android:lineSpacingExtra">4dp</item>
+    <item name="android:textSize">18dp</item>
+    <item name="android:textStyle">normal</item>
+    <item name="android:textColor">@color/gray_90</item>
+  </style>
 
 
 </resources>
