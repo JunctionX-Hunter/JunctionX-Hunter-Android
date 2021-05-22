@@ -6,7 +6,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.junction.seoul.hunterandroid.data.BusNumber
 import com.junction.seoul.hunterandroid.databinding.ItemAddRemoveTextBinding
 
-class AddAndDeleteAdapter : RecyclerView.Adapter<AddAndDeleteAdapter.ViewHolder>() {
+class AddAndDeleteAdapter(private val viewModel: AddAndDeleteViewModel) :
+  RecyclerView.Adapter<AddAndDeleteAdapter.ViewHolder>() {
 
   private val data = mutableListOf<BusNumber>()
 
@@ -18,19 +19,21 @@ class AddAndDeleteAdapter : RecyclerView.Adapter<AddAndDeleteAdapter.ViewHolder>
     notifyDataSetChanged()
   }
 
-  override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = ViewHolder.from(parent)
+  override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
+    ViewHolder.from(parent)
 
   override fun getItemCount() = data.size
 
   override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-    holder.bind(data[position])
+    holder.bind(data[position], viewModel)
   }
 
   class ViewHolder(private val binding: ItemAddRemoveTextBinding) :
     RecyclerView.ViewHolder(binding.root) {
 
-    fun bind(item: BusNumber) {
-      binding.busNumber = item.busNumber
+    fun bind(item: BusNumber, viewModel: AddAndDeleteViewModel) {
+      binding.vm = viewModel
+      binding.busNumber = item
     }
 
     companion object {
