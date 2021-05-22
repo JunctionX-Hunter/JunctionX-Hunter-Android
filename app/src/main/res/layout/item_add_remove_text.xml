@@ -10,10 +10,8 @@
     <variable
       name="busNumber"
       type="String" />
-  
-  
+    
   </data>
-  
   
   <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
@@ -23,17 +21,21 @@
     <androidx.constraintlayout.widget.ConstraintLayout
       android:layout_width="0dp"
       android:layout_height="wrap_content"
+      android:clipToPadding="false"
+      android:padding="2dp"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent">
       
-      <TextView
+      <Button
         android:id="@+id/tvAdd"
         android:layout_width="0dp"
-        android:layout_height="60dp"
-        android:background="@drawable/layout_boarder_1dp"
+        android:layout_height="48dp"
+        android:background="@drawable/rounded_6dp_button"
+        android:elevation="5dp"
         android:gravity="center"
         android:text="@{busNumber}"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"

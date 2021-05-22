@@ -25,21 +25,34 @@
       <TextView
         android:id="@+id/tvAdd"
         android:layout_width="0dp"
-        android:layout_height="60dp"
+        android:layout_height="52dp"
         android:layout_marginTop="50dp"
         android:background="@drawable/layout_boarder_1dp"
         android:gravity="center"
         android:text="@string/add_button"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="+ 추가버튼" />
+        tools:text="추가하기" />
+      
+      <ImageView
+        android:id="@+id/iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="80dp"
+        android:background="@drawable/ic_vector_18"
+        android:tintMode="src_atop"
+        app:layout_constraintBottom_toBottomOf="@id/tvAdd"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/tvAdd"
+        app:layout_constraintTop_toTopOf="@id/tvAdd" />
       
       <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="80dp"
         android:orientation="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"

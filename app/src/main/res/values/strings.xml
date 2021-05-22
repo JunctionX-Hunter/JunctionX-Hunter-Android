@@ -1,4 +1,4 @@
 <resources>
   <string name="app_name">HunterAndroid</string>
-  <string name="add_button">"+ 추가버튼</string>
+  <string name="add_button">"추가하기</string>
 </resources>
