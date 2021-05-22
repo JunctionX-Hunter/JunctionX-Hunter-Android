@@ -1,5 +1,8 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
   <!-- Base application theme. -->
+  <attr name="colorOnBackground" />
+  <attr name="colorSurface" />
+  
   <style name="Theme.HunterAndroid" parent="Theme.AppCompat.Light.NoActionBar">
     <!-- Primary brand color. -->
     <item name="colorPrimary">@color/purple_500</item>
@@ -12,5 +15,7 @@
     <!-- Status bar color. -->
     <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
     <!-- Customize your theme here. -->
+    <item name="colorOnBackground">@color/key_blue</item>
+    <item name="colorSurface">@color/gray_60</item>
   </style>
 </resources>
