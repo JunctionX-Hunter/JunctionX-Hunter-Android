@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  
+  <style name="Text">
+    <item name="android:fontFamily">sans-serif</item>
+  </style>
+  
+  <style name="Text.B3">
+    <item name="android:lineSpacingExtra">6dp</item>
+    <item name="android:textSize">24dp</item>
+    <item name="android:textStyle">bold</item>
+    <item name="android:textColor">@color/gray_90</item>
+  </style>
+  
+  <style name="Text.R1">
+    <item name="android:lineSpacingExtra">8dp</item>
+    <item name="android:textSize">16dp</item>
+    <item name="android:textStyle">normal</item>
+    <item name="android:textColor">@color/gray_90</item>
+  </style>
+
+
+</resources>
