@@ -44,6 +44,13 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
                 binding.title2.text = "경의선숲길공원입구"
                 binding.button1.text = "즐겨찾는 버스 번호"
                 binding.button2.text = "설정"
+
+                binding.button1.setOnClickListener {
+                    // TODO : 즐겨찾는 버스 번호
+                }
+                binding.button2.setOnClickListener {
+                    // TODO : 설정
+                }
             }
             MainViewState.Status.SEARCHED -> {
                 binding.title1.text = "검색하신 버스 번호가 맞으십니까?"
@@ -51,8 +58,24 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
                 binding.button1.text = "탑승할 예정입니다"
                 binding.button1.visibility = View.VISIBLE
                 binding.button2.visibility = View.INVISIBLE
+
+                binding.button1.setOnClickListener {
+                    viewModel.reserveBus()
+                }
             }
-            MainViewState.Status.RESERVED -> TODO()
+            MainViewState.Status.RESERVED -> {
+                binding.title1.text = "고객님이 탑승하실 버스 번호는"
+                binding.title2.text = "5017"
+                binding.button1.text = "탑승 취소"
+                binding.button1.visibility = View.VISIBLE
+                binding.button2.visibility = View.INVISIBLE
+                binding.voiceRecord.visibility = View.GONE
+                binding.busState.visibility = View.VISIBLE
+
+                binding.button1.setOnClickListener {
+                    // TODO : 탑승 취소
+                }
+            }
         }
     }
 }

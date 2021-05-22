@@ -19,4 +19,10 @@ class MainViewModel: ViewModel() {
             BusNumber(text)
         )
     }
+
+    fun reserveBus() {
+        _viewState.value = _viewState.value.copy(
+            status = MainViewState.Status.RESERVED
+        )
+    }
 }
