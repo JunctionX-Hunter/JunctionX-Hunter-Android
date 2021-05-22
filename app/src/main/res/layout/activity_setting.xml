@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools">
+  
+  <data>
+  
+  </data>
+  
+  <androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".setting.SettingActivity">
+    
+    <TextView
+      android:id="@+id/tvVibrate"
+      style="@style/Text.B3"
+      android:layout_width="95dp"
+      android:layout_height="30dp"
+      android:layout_alignParentLeft="true"
+      android:layout_alignParentTop="true"
+      android:layout_marginLeft="16dp"
+      android:layout_marginTop="209dp"
+      android:gravity="top"
+      android:lineSpacingExtra="0sp"
+      android:text="진동 설정"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
+    
+    <com.google.android.material.slider.Slider
+      android:id="@+id/slider"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="20dp"
+      android:layout_marginTop="20dp"
+      android:layout_marginEnd="20dp"
+      android:stepSize="1.0"
+      android:value="1.0"
+      android:valueFrom="0.0"
+      android:valueTo="2.0"
+      app:haloRadius="0dp"
+      app:labelBehavior="gone"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/tvVibrate"
+      app:thumbColor="@color/key_blue"
+      app:tickColorActive="@color/key_blue"
+      app:tickColorInactive="@color/gray_40"
+      app:trackColorActive="@color/gray_40"
+      app:trackColorInactive="@color/gray_40"
+      app:trackHeight="8dp" />
+    
+    <LinearLayout
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="16dp"
+      android:layout_marginEnd="16dp"
+      android:orientation="horizontal"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/slider">
+      
+      <TextView
+        android:layout_width="39dp"
+        android:layout_height="24dp"
+        android:layout_weight="1"
+        android:lineSpacingExtra="1sp"
+        android:text="1단계"
+        android:textAppearance="@style/Text.R1" />
+      
+      <TextView
+        android:layout_width="39dp"
+        android:layout_height="24dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:lineSpacingExtra="1sp"
+        android:text="2단계"
+        android:textAppearance="@style/Text.R1" />
+      
+      <TextView
+        android:layout_width="39dp"
+        android:layout_height="24dp"
+        android:layout_weight="1"
+        android:gravity="end"
+        android:lineSpacingExtra="1sp"
+        android:text="3단계"
+        android:textAppearance="@style/Text.R1" />
+    </LinearLayout>
+    
+    <Button
+      android:layout_width="0dp"
+      android:layout_height="48dp"
+      android:layout_marginStart="16dp"
+      android:layout_marginEnd="16dp"
+      android:layout_marginBottom="180dp"
+      android:background="@drawable/rounded_6dp_button"
+      android:elevation="5dp"
+      android:gravity="center"
+      android:text="로그아웃"
+      android:textColor="@color/black"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      tools:text="로그아웃" />
+  
+  
+  </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
