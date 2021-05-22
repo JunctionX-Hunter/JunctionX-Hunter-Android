@@ -5,42 +5,38 @@
   
   <data>
     
-    <import type="com.junction.seoul.hunterandroid.data.BusNumber" />
+    <variable
+      name="vm"
+      type="com.junction.seoul.hunterandroid.setting.AddAndDeleteViewModel" />
     
     <variable
       name="busNumber"
-      type="String" />
-    
+      type="com.junction.seoul.hunterandroid.data.BusNumber" />
+  
   </data>
   
   <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="30dp">
+    android:layout_marginBottom="30dp"
+    android:clipToPadding="false"
+    android:padding="2dp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
     
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <Button
       android:layout_width="0dp"
-      android:layout_height="wrap_content"
-      android:clipToPadding="false"
-      android:padding="2dp"
+      android:layout_height="48dp"
+      android:background="@drawable/rounded_6dp_button"
+      android:elevation="5dp"
+      android:gravity="center"
+      android:text="@{busNumber.title}"
+      android:textColor="@color/black"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent">
-      
-      <Button
-        android:id="@+id/tvAdd"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:background="@drawable/rounded_6dp_button"
-        android:elevation="5dp"
-        android:gravity="center"
-        android:text="@{busNumber}"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="저장된 번호" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+      app:layout_constraintTop_toTopOf="parent"
+      tools:text="저장된 번호" />
   
   
   </androidx.constraintlayout.widget.ConstraintLayout>
