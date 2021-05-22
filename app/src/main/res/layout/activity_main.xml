@@ -11,7 +11,7 @@
         tools:context=".main.MainActivity">
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/bus_stop_title"
+            android:id="@+id/title1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
@@ -25,7 +25,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/bus_stop_display"
+            android:id="@+id/title2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -35,18 +35,18 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/bus_stop_title" />
+            app:layout_constraintTop_toBottomOf="@id/title1" />
 
         <com.junction.seoul.hunterandroid.main.VoiceRecordView
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:layout_constraintBottom_toTopOf="@id/favorite"
+            app:layout_constraintBottom_toTopOf="@id/button1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/bus_stop_display" />
+            app:layout_constraintTop_toBottomOf="@id/title2" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/favorite"
+            android:id="@+id/button1"
             android:layout_width="0dp"
             android:layout_height="48dp"
             android:layout_marginBottom="12dp"
@@ -56,12 +56,12 @@
             android:text="즐겨찾는 버스 번호"
             android:textColor="#ffffff"
             android:textSize="18dp"
-            app:layout_constraintBottom_toTopOf="@id/setting"
+            app:layout_constraintBottom_toTopOf="@id/button2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/setting"
+            android:id="@+id/button2"
             android:layout_width="0dp"
             android:layout_height="48dp"
             android:layout_marginBottom="31dp"
