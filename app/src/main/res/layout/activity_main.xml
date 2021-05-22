@@ -37,8 +37,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/bus_stop_title" />
 
-        <!-- TODO -->
-        <View
+        <com.junction.seoul.hunterandroid.VoiceRecordView
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:layout_constraintBottom_toTopOf="@id/favorite"
