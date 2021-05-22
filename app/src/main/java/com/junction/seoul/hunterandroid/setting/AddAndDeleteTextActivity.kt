@@ -1,5 +1,7 @@
 package com.junction.seoul.hunterandroid.setting
 
+import android.content.Context
+import android.content.Intent
 import androidx.activity.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.junction.seoul.hunterandroid.R
@@ -8,6 +10,7 @@ import com.junction.seoul.hunterandroid.databinding.ActivityAddAndRemoveTextBind
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
+import timber.log.Timber
 
 class AddAndDeleteTextActivity :
   BaseActivity<ActivityAddAndRemoveTextBinding>(layoutRes = R.layout.activity_add_and_remove_text) {
@@ -29,10 +32,20 @@ class AddAndDeleteTextActivity :
 
   private fun setupViewModel() {
     viewModel.updateBusNumbers()
-    uiStateJob = lifecycleScope.launch {
 
-      viewModel.busNumber.collect {
+    uiStateJob = lifecycleScope.launch {
+      viewModel.busNumbers.collect {
         adapter.setItem(it)
+      }
+    }
+    uiStateJob = lifecycleScope.launch {
+      viewModel.pickBus.collect { pickBus ->
+        if (pickBus.title == null) return@collect
+        BottomDialogFragment(
+          onDelete = { viewModel.deleteBusNumber() }
+        ).run {
+          show(supportFragmentManager, tag)
+        }
       }
     }
   }
@@ -40,7 +53,12 @@ class AddAndDeleteTextActivity :
   override fun onStop() {
     uiStateJob?.cancel()
     super.onStop()
+  }
 
+  companion object {
+    fun launch(context: Context) {
+      context.startActivity(Intent(context, AddAndDeleteTextActivity::class.java))
+    }
   }
 
 }

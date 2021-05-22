@@ -16,28 +16,31 @@
   </data>
   
   <androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/item"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="30dp"
-    android:clipToPadding="false"
-    android:padding="2dp"
+    android:layout_marginBottom="24dp"
+    android:background="#ffffff"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent">
     
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
+      android:id="@+id/btn"
       android:layout_width="0dp"
       android:layout_height="48dp"
-      android:background="@drawable/rounded_6dp_button"
+      android:layout_marginBottom="31dp"
+      android:background="@drawable/background_white_button"
+      android:clipToPadding="false"
       android:elevation="5dp"
       android:gravity="center"
+      android:onClick="@{() -> vm.showDeleteDialog(busNumber)}"
       android:text="@{busNumber.title}"
       android:textColor="@color/black"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
       tools:text="저장된 번호" />
-  
   
   </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

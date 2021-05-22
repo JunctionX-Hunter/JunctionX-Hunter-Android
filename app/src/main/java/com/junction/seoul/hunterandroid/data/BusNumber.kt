@@ -1,7 +1,7 @@
 package com.junction.seoul.hunterandroid.data
 
 data class BusNumber(
-  val title: String
+  val title: String? = null
 )
 
 //TODO 저장된 버스 숫자 가져오도록 수정 필요
