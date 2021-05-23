@@ -1,8 +1,17 @@
 package com.junction.seoul.hunterandroid.main
 
+import android.Manifest
+import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Bundle
+import android.speech.RecognitionListener
+import android.speech.RecognizerIntent
+import android.speech.SpeechRecognizer
 import android.view.View
+import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
 import com.junction.seoul.hunterandroid.R
 import com.junction.seoul.hunterandroid.base.BaseActivity
@@ -15,17 +24,16 @@ import kotlinx.coroutines.flow.collect
 @ExperimentalCoroutinesApi
 class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
 
-    private val viewModel by viewModels<MainViewModel>()
+  private val viewModel by viewModels<MainViewModel>()
+  private lateinit var recognizer: SpeechRecognizer
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding.voiceRecord.setOnClickListener {
-            // TODO : 음성 인식후 그 결과를 전달하도록 변경
-            viewModel.searchBus("5017")
-        }
+    binding.voiceRecord.setOnClickListener {
+      startStt()
     }
-
+  }
     override fun onStart() {
         super.onStart()
         subscribeViewModel()
@@ -80,4 +88,87 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
             }
         }
     }
+
+
+  private fun startStt() {
+    val neededPermission = ContextCompat.checkSelfPermission(
+      this,
+      Manifest.permission.RECORD_AUDIO
+    ) != PackageManager.PERMISSION_GRANTED
+
+    if (neededPermission) {
+      ActivityCompat.requestPermissions(
+        this, arrayOf(
+          Manifest.permission.INTERNET,
+          Manifest.permission.RECORD_AUDIO
+        ), REQUEST_AUDIO_PERMISSION
+      )
+    }
+
+    recognizer = SpeechRecognizer.createSpeechRecognizer(this)
+    recognizer.setRecognitionListener(listener)
+    recognizer.startListening(Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH).run {
+      putExtra(RecognizerIntent.EXTRA_CALLING_PACKAGE, packageName)
+      putExtra(RecognizerIntent.EXTRA_LANGUAGE, "ko-KR")
+    })
+  }
+
+  private val listener = object : RecognitionListener {
+    override fun onReadyForSpeech(p0: Bundle?) {
+      // 사용자가 말하기 시작할 준비가되면 호출됩니다.
+      Toast.makeText(applicationContext, "음성인식을 시작", Toast.LENGTH_LONG).show()
+    }
+
+    override fun onRmsChanged(p0: Float) {
+      // 입력받는 소리의 크기를 알려줍니다.
+    }
+
+    override fun onBufferReceived(p0: ByteArray?) {
+      // 사용자가 말을 시작하고 인식이 된 단어를 buffer에 담습니다.
+    }
+
+    override fun onPartialResults(p0: Bundle?) {
+      // 부분 인식 결과를 사용할 수 있을 때 호출됩니다.
+    }
+
+    override fun onEvent(p0: Int, p1: Bundle?) {
+      // 향후 이벤트를 추가하기 위해 예약됩니다.
+    }
+
+    override fun onBeginningOfSpeech() {
+      // 사용자가 말하기 시작할 준비가되면 호출됩니다.
+    }
+
+    override fun onEndOfSpeech() {
+      // 사용자가 말하기를 중지하면 호출됩니다.
+    }
+
+    override fun onError(p0: Int) {
+      // 네트워크 또는 인식 오류가 발생했을 때 호출됩니다.
+      Toast.makeText(applicationContext, "에러가 발생하였습니다", Toast.LENGTH_LONG).show()
+    }
+
+    override fun onResults(speach: Bundle?) {
+      // 인식 결과가 준비되면 호출됩니다.
+      val result = speach?.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION) ?: return
+      for (search in result) {
+        Toast.makeText(applicationContext, "$result", Toast.LENGTH_LONG).show()
+        //TODO result 여러개일때 search API 여러번 호출되는거 고려되야함.
+        viewModel.searchBus(search)
+      }
+    }
+  }
+
+  override fun onRequestPermissionsResult(
+    requestCode: Int,
+    permissions: Array<out String>,
+    grantResults: IntArray
+  ) {
+    super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+    if (requestCode == REQUEST_AUDIO_PERMISSION && (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED))
+      startStt()
+  }
+  companion object {
+    private const val REQUEST_AUDIO_PERMISSION = 21
+  }
 }
