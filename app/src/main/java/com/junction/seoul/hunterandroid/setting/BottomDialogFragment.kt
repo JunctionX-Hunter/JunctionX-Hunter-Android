@@ -4,15 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.DialogFragment
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.junction.seoul.hunterandroid.R
 import com.junction.seoul.hunterandroid.databinding.FragmentBottomDialogListDialogBinding
 import kotlinx.android.synthetic.main.fragment_bottom_dialog_list_dialog.*
 
-class BottomDialogFragment(val onDelete: () -> Unit) :
-  BottomSheetDialogFragment() {
+class BottomDialogFragment(val onDelete: () -> Unit) : BottomSheetDialogFragment() {
 
   lateinit var binding: FragmentBottomDialogListDialogBinding
 
