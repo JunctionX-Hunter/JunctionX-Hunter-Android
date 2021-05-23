@@ -32,9 +32,7 @@ class AddAndDeleteViewModel : ViewModel() {
 
   fun deleteBusNumber() {
     val removedList = _busNumbers.value.filterNot { it == pickBus.value }
-    _busNumbers.value.run {
-      clear()
-      removedList.toMutableList()
-    }
+    _busNumbers.value.clear()
+    _busNumbers.value = removedList.toMutableList()
   }
 }
