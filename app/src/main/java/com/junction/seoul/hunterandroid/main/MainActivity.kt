@@ -7,6 +7,8 @@ import androidx.lifecycle.lifecycleScope
 import com.junction.seoul.hunterandroid.R
 import com.junction.seoul.hunterandroid.base.BaseActivity
 import com.junction.seoul.hunterandroid.databinding.ActivityMainBinding
+import com.junction.seoul.hunterandroid.setting.AddAndDeleteTextActivity
+import com.junction.seoul.hunterandroid.setting.SettingActivity
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.collect
 
@@ -46,10 +48,10 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
                 binding.button2.text = "설정"
 
                 binding.button1.setOnClickListener {
-                    // TODO : 즐겨찾는 버스 번호
+                    AddAndDeleteTextActivity.launch(this)
                 }
                 binding.button2.setOnClickListener {
-                    // TODO : 설정
+                    SettingActivity.launch(this)
                 }
             }
             MainViewState.Status.SEARCHED -> {

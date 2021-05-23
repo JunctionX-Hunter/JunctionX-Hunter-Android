@@ -2,6 +2,7 @@ package com.junction.seoul.hunterandroid.setting
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.databinding.library.baseAdapters.BR
 import androidx.recyclerview.widget.RecyclerView
 import com.junction.seoul.hunterandroid.data.BusNumber
 import com.junction.seoul.hunterandroid.databinding.ItemAddRemoveTextBinding
@@ -32,8 +33,9 @@ class AddAndDeleteAdapter(private val viewModel: AddAndDeleteViewModel) :
     RecyclerView.ViewHolder(binding.root) {
 
     fun bind(item: BusNumber, viewModel: AddAndDeleteViewModel) {
-      binding.vm = viewModel
       binding.busNumber = item
+      binding.vm = viewModel
+      binding.executePendingBindings()
     }
 
     companion object {

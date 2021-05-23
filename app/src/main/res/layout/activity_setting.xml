@@ -45,7 +45,7 @@
       app:thumbColor="@color/key_blue"
       app:tickColorActive="@color/key_blue"
       app:tickColorInactive="@color/gray_40"
-      app:trackColorActive="@color/gray_40"
+      app:trackColorActive="@color/key_blue"
       app:trackColorInactive="@color/gray_40"
       app:trackHeight="8dp" />
     
@@ -92,7 +92,8 @@
       android:layout_marginStart="16dp"
       android:layout_marginEnd="16dp"
       android:layout_marginBottom="180dp"
-      android:background="@drawable/rounded_6dp_button"
+      android:background="@drawable/background_white_button"
+      android:clipToPadding="false"
       android:elevation="5dp"
       android:gravity="center"
       android:text="로그아웃"
