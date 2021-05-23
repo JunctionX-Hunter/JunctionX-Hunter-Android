@@ -41,7 +41,8 @@ class AddAndDeleteTextActivity :
     uiStateJob = lifecycleScope.launch {
       viewModel.pickBus.collect { pickBus ->
         if (pickBus.title == null) return@collect
-        BottomDialogFragment(
+        BottomDialogFragment.newInstance(
+          busNumber = pickBus.title,
           onDelete = { viewModel.deleteBusNumber() }
         ).run {
           show(supportFragmentManager, tag)

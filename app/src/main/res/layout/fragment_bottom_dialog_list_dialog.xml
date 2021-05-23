@@ -4,6 +4,10 @@
   xmlns:tools="http://schemas.android.com/tools">
   
   <data>
+    
+    <variable
+      name="busNumber"
+      type="String" />
   
   </data>
   
@@ -11,6 +15,7 @@
     android:id="@+id/list"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/gray_90"
     android:clipToPadding="false"
     app:behavior_hideable="true"
     app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
@@ -33,7 +38,7 @@
         android:gravity="left"
         android:paddingStart="16dp"
         android:paddingEnd="16dp"
-        android:text="6172 버스 번호를 삭제하시겠습니까?"
+        android:text="@{busNumber+`버스 번호를 삭제하시겠습니까?`}"
         android:textColor="@color/white"
         app:layout_constraintBottom_toTopOf="@id/btCancle"
         app:layout_constraintEnd_toEndOf="parent"

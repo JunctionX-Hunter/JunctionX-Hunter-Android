@@ -5,13 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.DialogFragment
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.junction.seoul.hunterandroid.R
 import com.junction.seoul.hunterandroid.databinding.FragmentBottomDialogListDialogBinding
 import kotlinx.android.synthetic.main.fragment_bottom_dialog_list_dialog.*
 
-class BottomDialogFragment(val onDelete: () -> Unit) : BottomSheetDialogFragment() {
+class BottomDialogFragment(private val onDelete: () -> Unit) : BottomSheetDialogFragment() {
 
   lateinit var binding: FragmentBottomDialogListDialogBinding
 
@@ -32,6 +31,8 @@ class BottomDialogFragment(val onDelete: () -> Unit) : BottomSheetDialogFragment
 
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     super.onViewCreated(view, savedInstanceState)
+    binding.busNumber = arguments?.getString(BUS_NUMBER, "6172")
+
     btCancle.setOnClickListener {
       dialog?.dismiss()
     }
@@ -39,5 +40,15 @@ class BottomDialogFragment(val onDelete: () -> Unit) : BottomSheetDialogFragment
       onDelete.invoke()
       dialog?.dismiss()
     }
+  }
+
+  companion object {
+    private const val BUS_NUMBER = "BUS_NUMBER"
+    fun newInstance(busNumber: String, onDelete: () -> Unit): BottomDialogFragment =
+      BottomDialogFragment(onDelete).apply {
+        arguments = Bundle().apply {
+          putString(BUS_NUMBER, busNumber)
+        }
+      }
   }
 }
