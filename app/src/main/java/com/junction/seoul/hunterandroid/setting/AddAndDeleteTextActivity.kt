@@ -10,7 +10,6 @@ import com.junction.seoul.hunterandroid.databinding.ActivityAddAndRemoveTextBind
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
-import timber.log.Timber
 
 class AddAndDeleteTextActivity :
   BaseActivity<ActivityAddAndRemoveTextBinding>(layoutRes = R.layout.activity_add_and_remove_text) {
