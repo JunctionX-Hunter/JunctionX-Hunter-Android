@@ -5,10 +5,15 @@ As the rest of the world is moving forwards with technology, making leaps and bo
 
 ## The Team
 Sungmin Jung: Android Developer & Frontend Developer
+
 Sooyeon Kim: Android Developer & Frontend Developer
+
 Changmin Kim: Backend Developer
+
 Sunghyun Kang: Backend developer
+
 Sungyun Cho: UI/UX Designer
+
 [Srujan Gupta](https://www.linkedin.com/in/notsrujangupta): Data Science Entrepreneur
 
 ## Our Approach
