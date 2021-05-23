@@ -1,4 +1,4 @@
-package com.junction.seoul.hunterandroid
+package com.junction.seoul.hunterandroid.main
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -9,6 +9,7 @@ import android.graphics.Paint
 import android.graphics.Rect
 import android.util.AttributeSet
 import android.view.View
+import com.junction.seoul.hunterandroid.R
 import kotlin.math.roundToInt
 
 class VoiceRecordView @JvmOverloads constructor(
